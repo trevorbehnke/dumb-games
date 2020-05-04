@@ -2,15 +2,17 @@
 
 {% block body %}
 
-<h2>{{ the_title }}</h2>
+<h1>{{ the_title }}</h1>
 
 <form method='POST' action='/results'>
     <table>
         <tr>
-            <td>Sides: </td><td><input name='sides' type='number' width='60'></td>
+            <td>Sides: </td>
+            <td><input name='sides' type='number' width='60'></td>
         </tr> 
         <tr>
-            <td>Quantity: </td><td><input name='quantity' type='number' width='60'></td>
+            <td>Quantity: </td>
+            <td><input name='quantity' type='number' width='60'></td>
         </tr> 
     </table>
     <p><input value='Roll!' type='SUBMIT'></p>

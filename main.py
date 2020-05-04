@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from Die import Die
-from random import randint
 
 app = Flask(__name__)
 
@@ -18,7 +17,7 @@ def roll_die():
 
     sides = int(request.form['sides'])
     quantity = int(request.form['quantity'])
-    title = 'Here are your results:'
+    title = 'Results:'
 
     die = Die(sides)
 
