@@ -7,8 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" href="/rollthebones">Roll the Bones!</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="active" href="/sortaword">Sort a Word!</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
     {% block body %}
 
     {% endblock %}
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2020 by <a href="https://trevorbehnke.com">Trevor Behnke</a>.
+        {% endblock %}
+    </div>
 </body>
 </html>

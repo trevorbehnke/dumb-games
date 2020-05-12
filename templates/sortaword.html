@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>{{ the_title }}</h1>
+
+<form method='POST' action='/sortawordresults'>
+    <table>
+        <tr>
+            <td>Word: </td>
+            <td><input name='x_word' type='text' width='60'></td>
+        </tr> 
+    </table>
+    <p><input value='Sort!' type='SUBMIT'></p>
+</form>
+
+{% endblock %}
