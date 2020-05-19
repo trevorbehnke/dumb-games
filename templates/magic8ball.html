@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>{{ the_title }}</h1>
+
+<form method='POST' action='/magic8ballresults'>
+    <table>
+        <tr>
+            <td>Ask a "yes" or "no" question: </td>
+            <td><input name='question' type='text' width='60'></td>
+        </tr> 
+    </table>
+    <p><button class="btn btn-success ml-2" type="submit">Answer!</button></p>
+</form>
+
+{% endblock %}

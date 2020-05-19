@@ -7,15 +7,15 @@
 <form method='POST' action='/rollresults'>
     <table>
         <tr>
-            <td>Sides: </td>
+            <td>How many sides do you want the die to have: </td>
             <td><input name='sides' type='number' width='60'></td>
         </tr> 
         <tr>
-            <td>Quantity: </td>
+            <td>How many die do you want to roll: </td>
             <td><input name='quantity' type='number' width='60'></td>
         </tr> 
     </table>
-    <p><input value='Roll!' type='SUBMIT'></p>
+    <p><button class="btn btn-success ml-2" type="submit">Roll!</button></p>
 </form>
 
 {% endblock %}
