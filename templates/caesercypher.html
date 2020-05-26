@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>{{ the_title }}</h1>
+
+<form method='POST' action='/caesercypherresults'>
+    <table>
+        <tr>
+            <td>Enter a secret numeric encryption key: </td>
+            <td><input name='key' type='number' width='60'></td>
+        </tr> 
+        <tr>
+            <td>Enter a message you want to encrypt: </td>
+            <td><input name='message' type='text' width='60'></td>
+        </tr> 
+    </table>
+    <p><button class="btn btn-success ml-2" type="submit">Encrypt!</button></p>
+</form>
+
+{% endblock %}

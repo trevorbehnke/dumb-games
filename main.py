@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 from Die import Die
 from Sort import Sort
-from Magic8 import Magic8ball, response
+from Magic8 import Magic8ball
+from Caesercypher import Cypher
+
 import random
 
 app = Flask(__name__)
@@ -15,10 +17,14 @@ sortaword = Sort
 global magic8ball
 magic8ball = Magic8ball
 
+global cypher_maker
+cypher_maker = Cypher
+
 @app.route('/')
 @app.route('/home')
 def home_page():
     return render_template('home.html', the_title='Welcome to DumbGamez!')
+
 
 @app.route('/rollthebones')
 def rollthebones_page():
@@ -39,7 +45,8 @@ def roll_die():
         result = die.roll()
         results.append(result)
 
-    return render_template('rollresults.html', the_title=title, the_sides=sides, the_quantity=quantity, the_results=results)
+    return render_template('rollresults.html', the_title=title, the_results=results)
+
 
 @app.route('/sortaword')
 def sortaword_page():
@@ -58,6 +65,7 @@ def word_sort():
 
     return render_template('sortawordresults.html', the_title=title, the_results=sorted_word)
 
+
 @app.route('/magic8ball')
 def magic8_page():
     return render_template('magic8ball.html', the_title='Magic 8 Ball!')
@@ -72,7 +80,24 @@ def magic_8():
     question = Magic8ball(question)
     
     answer = question.ask()
-    # for x in response:
-    #     return random.choice(response)
 
     return render_template('magic8ballresults.html', the_title=title, the_results=answer)
+
+
+@app.route('/caesercypher')
+def caesercypher_page():
+    return render_template('caesercypher.html', the_title='Caeser Cypher!')
+
+@app.route('/caesercypherresults', methods=['POST'])
+def caeser_cypher():
+    global cypher_maker
+
+    key = int(request.form['key'])
+    message = str(request.form['message'])
+    title = 'Results:'
+
+    cypher = Cypher(key, message)
+
+    results = cypher.encode()
+
+    return render_template('caesercypherresults.html', the_title=title, the_results=results)
