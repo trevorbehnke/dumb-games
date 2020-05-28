@@ -3,6 +3,7 @@ from Die import Die
 from Sort import Sort
 from Magic8 import Magic8ball
 from Caesercypher import Cypher
+from rps2 import RPS
 
 import random
 
@@ -19,6 +20,9 @@ magic8ball = Magic8ball
 
 global cypher_maker
 cypher_maker = Cypher
+
+global rps_game
+rps_game = RPS
 
 @app.route('/')
 @app.route('/home')
@@ -92,12 +96,30 @@ def caesercypher_page():
 def caeser_cypher():
     global cypher_maker
 
+    mode = str(request.form['mode'])
     key = int(request.form['key'])
     message = str(request.form['message'])
     title = 'Results:'
 
-    cypher = Cypher(key, message)
+    cypher = Cypher(mode, key, message)
 
     results = cypher.encode()
 
     return render_template('caesercypherresults.html', the_title=title, the_results=results)
+
+
+@app.route('/rps')
+def rps_page():
+    return render_template('rps.html', the_title='Rock, Paper, Scissors!')
+
+@app.route('/rpsresults', methods=['POST'])
+def rps():
+    global rps_game
+
+    mychoice = str(request.form['mychoice'])
+    title = 'Results:'
+
+    results = RPS(mychoice)
+    results = results.round()
+
+    return render_template('rpsresults.html', the_title=title, the_results=results)

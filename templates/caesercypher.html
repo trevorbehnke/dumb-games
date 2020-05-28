@@ -7,15 +7,19 @@
 <form method='POST' action='/caesercypherresults'>
     <table>
         <tr>
-            <td>Enter a secret numeric encryption key: </td>
+            <td>Do you want to encrypt or decrypt: </td>
+            <td><input name='mode' type='text' width='60'></td>
+        </tr> 
+        <tr>
+            <td>Enter your secret numeric encryption key: </td>
             <td><input name='key' type='number' width='60'></td>
         </tr> 
         <tr>
-            <td>Enter a message you want to encrypt: </td>
+            <td>Enter the message you want to encrypt: </td>
             <td><input name='message' type='text' width='60'></td>
         </tr> 
     </table>
-    <p><button class="btn btn-success ml-2" type="submit">Encrypt!</button></p>
+    <p><button class="btn btn-success ml-2" type="submit">Submit!</button></p>
 </form>
 
 {% endblock %}

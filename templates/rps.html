@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>{{ the_title }}</h1>
+
+<form method='POST' action='/rpsresults'>
+    <table>
+        <tr>
+            <td>Rock, Paper, or Scissors? </td>
+            <td><input name='mychoice' type='text' width='60'></td>
+        </tr> 
+    </table>
+    <p><button class="btn btn-success ml-2" type="submit">Shoot!</button></p>
+</form>
+
+{% endblock %}
