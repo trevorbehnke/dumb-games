@@ -158,7 +158,8 @@ def toss_coin():
 def idiot_page():
     return render_template('idiot.html', the_title='Idiot!')
 
-@app.route('/idiotresults', methods=['POST'])
+@app.route('/idiot', methods=['POST'])
+@app.route('/idiotsuccess', methods=['POST'])
 def run_idiot():
     global idiot_game
 
@@ -168,9 +169,9 @@ def run_idiot():
     results = 'Ok, have a great day!'
 
     while True:
-        if response == 'yes':
-            return render_template('idiot.html', the_title=title, the_results=results)
         if response == 'no':
             break
+        else:
+            return render_template('idiot.html', the_title=title, the_results=results)
 
     return render_template('idiotsuccess.html', the_results=results)
