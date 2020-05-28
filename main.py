@@ -90,7 +90,7 @@ def magic_8():
 
 @app.route('/caesercypher')
 def caesercypher_page():
-    return render_template('caesercypher.html', the_title='Caeser Cypher!')
+    return render_template('caesercypher.html', the_title='Cryptography!')
 
 @app.route('/caesercypherresults', methods=['POST'])
 def caeser_cypher():
