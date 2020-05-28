@@ -4,6 +4,7 @@ from Sort import Sort
 from Magic8 import Magic8ball
 from Caesercypher import Cypher
 from rps2 import RPS
+from Cointoss import Coin
 
 import random
 
@@ -23,6 +24,9 @@ cypher_maker = Cypher
 
 global rps_game
 rps_game = RPS
+
+global cointoss_game
+cointoss_game = Coin
 
 @app.route('/')
 @app.route('/home')
@@ -123,3 +127,24 @@ def rps():
     results = results.round()
 
     return render_template('rpsresults.html', the_title=title, the_results=results)
+
+
+@app.route('/cointoss')
+def cointoss_page():
+    return render_template('cointoss.html', the_title='Coin Toss!')
+
+@app.route('/cointossresults', methods=['POST'])
+def toss_coin():
+    global cointoss_game
+
+    quantity = int(request.form['quantity'])
+    title = 'Results:'
+
+    coin = Coin()
+
+    results = []
+    for roll_num in range(quantity):
+        result = coin.toss()
+        results.append(result)
+
+    return render_template('rollresults.html', the_title=title, the_results=results)

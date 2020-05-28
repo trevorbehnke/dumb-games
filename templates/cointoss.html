@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<center><h1>{{ the_title }}</h1></center>
+
+<center>
+    <form method='POST' action='/cointossresults'>
+        <table> 
+            <tr>
+                <td>How many coins do you want to toss: </td>
+                <td><input name='quantity' type='number' width='60'></td>
+            </tr> 
+        </table>
+        <p><button class="btn btn-success ml-2" type="submit">Toss!</button></p>
+    </form>
+</center>
+
+{% endblock %}
