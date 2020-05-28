@@ -2,24 +2,26 @@
 
 {% block body %}
 
-<h1>{{ the_title }}</h1>
+<center><h1>{{ the_title }}</h1></center>
 
-<form method='POST' action='/caesercypherresults'>
-    <table>
-        <tr>
-            <td>Do you want to encrypt or decrypt: </td>
-            <td><input name='mode' type='text' width='60'></td>
-        </tr> 
-        <tr>
-            <td>Enter your secret numeric encryption key: </td>
-            <td><input name='key' type='number' width='60'></td>
-        </tr> 
-        <tr>
-            <td>Enter the message you want to encrypt: </td>
-            <td><input name='message' type='text' width='60'></td>
-        </tr> 
-    </table>
-    <p><button class="btn btn-success ml-2" type="submit">Submit!</button></p>
-</form>
+<center>
+    <form method='POST' action='/caesercypherresults'>
+        <table>
+            <tr>
+                <td>Do you want to encrypt or decrypt: </td>
+                <td><input name='mode' type='text' width='60'></td>
+            </tr> 
+            <tr>
+                <td>Enter your secret numeric encryption key: </td>
+                <td><input name='key' type='number' width='60'></td>
+            </tr> 
+            <tr>
+                <td>Enter the message you want to encrypt: </td>
+                <td><input name='message' type='text' width='60'></td>
+            </tr> 
+        </table>
+        <p><button class="btn btn-success ml-2" type="submit">Submit!</button></p>
+    </form>
+</center>
 
 {% endblock %}

@@ -2,20 +2,22 @@
 
 {% block body %}
 
-<h1>{{ the_title }}</h1>
+<center><h1>{{ the_title }}</h1></center>
 
-<form method='POST' action='/rollresults'>
-    <table>
-        <tr>
-            <td>How many sides do you want the die to have: </td>
-            <td><input name='sides' type='number' width='60'></td>
-        </tr> 
-        <tr>
-            <td>How many die do you want to roll: </td>
-            <td><input name='quantity' type='number' width='60'></td>
-        </tr> 
-    </table>
-    <p><button class="btn btn-success ml-2" type="submit">Roll!</button></p>
-</form>
+<center>
+    <form method='POST' action='/rollresults'>
+        <table>
+            <tr>
+                <td>How many sides do you want the die to have: </td>
+                <td><input name='sides' type='number' width='60'></td>
+            </tr> 
+            <tr>
+                <td>How many die do you want to roll: </td>
+                <td><input name='quantity' type='number' width='60'></td>
+            </tr> 
+        </table>
+        <p><button class="btn btn-success ml-2" type="submit">Roll!</button></p>
+    </form>
+</center>
 
 {% endblock %}

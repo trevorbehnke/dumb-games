@@ -2,16 +2,17 @@
 
 {% block body %}
 
-<h1>{{ the_title }}</h1>
+<center><h1>{{ the_title }}</h1></center>
 
-<form method='POST' action='/sortawordresults'>
-    <table>
-        <tr>
-            <td>Word: </td>
-            <td><input name='x_word' type='text' width='60'></td>
-        </tr> 
-    </table>
-    <p><button class="btn btn-success ml-2" type="submit">Sort!</button></p>
-</form>
-
+<center>
+    <form method='POST' action='/sortawordresults'>
+        <table>
+            <tr>
+                <td>Word: </td>
+                <td><input name='x_word' type='text' width='60'></td>
+            </tr> 
+        </table>
+        <p><button class="btn btn-success ml-2" type="submit">Sort!</button></p>
+    </form>
+</center>
 {% endblock %}
