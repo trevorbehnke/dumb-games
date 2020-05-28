@@ -143,7 +143,7 @@ def toss_coin():
     coin = Coin()
 
     results = []
-    for roll_num in range(quantity):
+    for x in range(quantity):
         result = coin.toss()
         results.append(result)
 
