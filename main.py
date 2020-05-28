@@ -5,6 +5,7 @@ from Magic8 import Magic8ball
 from Caesercypher import Cypher
 from rps2 import RPS
 from Cointoss import Coin
+from Idiot import Idiot
 
 import random
 
@@ -27,6 +28,9 @@ rps_game = RPS
 
 global cointoss_game
 cointoss_game = Coin
+
+global idiot_game
+idiot_game = Idiot
 
 @app.route('/')
 @app.route('/home')
@@ -148,3 +152,25 @@ def toss_coin():
         results.append(result)
 
     return render_template('rollresults.html', the_title=title, the_results=results)
+
+
+@app.route('/idiot')
+def idiot_page():
+    return render_template('idiot.html', the_title='Idiot!')
+
+@app.route('/idiotresults', methods=['POST'])
+def run_idiot():
+    global idiot_game
+
+    response = str(request.form['question'])
+    title = 'Idiot!'
+
+    results = 'Ok, have a great day!'
+
+    while True:
+        if response == 'yes':
+            return render_template('idiot.html', the_title=title, the_results=results)
+        if response == 'no':
+            break
+
+    return render_template('idiotsuccess.html', the_results=results)
