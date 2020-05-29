@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<center><h1>{{ the_title }}</h1></center>
+
+<center>
+    <form method='POST' action='/fibresults'>
+        <table> 
+            <tr>
+                <td>Enter the nth Fibonacci number you want to know : </td>
+                <td><input name='prompt' type='number' width='60'></td>
+            </tr> 
+        </table>
+        <p><button class="btn btn-success ml-2" type="submit">Find Out!</button></p>
+    </form>
+</center>
+
+{% endblock %}

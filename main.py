@@ -6,6 +6,7 @@ from Caesercypher import Cypher
 from rps2 import RPS
 from Cointoss import Coin
 from Idiot import Idiot
+from Fibonacci import Fibonacci
 
 import random
 
@@ -31,6 +32,9 @@ cointoss_game = Coin
 
 global idiot_game
 idiot_game = Idiot
+
+global fib_game
+fib_game = Fibonacci
 
 @app.route('/')
 @app.route('/home')
@@ -175,3 +179,27 @@ def run_idiot():
             return render_template('idiot.html', the_title=title, the_results=results)
 
     return render_template('idiotsuccess.html', the_results=results)
+
+
+@app.route('/fib')
+def fib_page():
+    return render_template('fib.html', the_title='Fibonacci!')
+
+@app.route('/fibresults', methods=['POST'])
+def run_fib():
+    global fib_game
+
+    nth = int(request.form['prompt'])
+    title = 'Results:'
+
+    fibonacci = Fibonacci(nth)
+    results = fibonacci.run()
+
+    # if nth == 0:
+    #         return('0')
+    # if nth == 1:
+    #         return('0')
+    # if nth == 2:
+    #         return('1')
+    # else:
+    return render_template('fibresults.html', the_title=title, the_results=results)
