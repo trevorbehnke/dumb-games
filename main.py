@@ -36,6 +36,9 @@ idiot_game = Idiot
 global fib_game
 fib_game = Fibonacci
 
+# global reaction_game
+# reaction_game = Reaction
+
 @app.route('/')
 @app.route('/home')
 def home_page():
@@ -195,11 +198,8 @@ def run_fib():
     fibonacci = Fibonacci(nth)
     results = fibonacci.run()
 
-    # if nth == 0:
-    #         return('0')
-    # if nth == 1:
-    #         return('0')
-    # if nth == 2:
-    #         return('1')
-    # else:
     return render_template('fibresults.html', the_title=title, the_results=results)
+
+@app.route('/reactiontimer')
+def reactiontimer():
+    return render_template('reactiontimer.html')
